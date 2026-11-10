@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member 1 Blog - Rainforest Group Website</title>
+  <link rel="stylesheet" href="rainforest.css">
+
+  <style>
+
+    .profile {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 10px auto 18px;
+      border-radius: 50%;
+      background: var(--gubat-liwanag);
+      border: 4px solid var(--dahon);
+      box-shadow: 0 0 25px rgba(143, 214, 148, 0.5);
+      overflow: hidden;
+    }
+
+    .profile .num {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: var(--gubat-madilim);
+    }
+
+    .profile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .member-name {
+      font-size: 2.2rem;
+      color: var(--dahon);
+      text-shadow: 0 0 20px rgba(143, 214, 148, 0.5);
+      margin-bottom: 5px;
+    }
+
+    .section {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .section h3 {
+      font-size: 1.3rem;
+      color: var(--dahon);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .section h3::before {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 10px;
+      background: var(--dahon);
+      border-radius: 0 100% 0 100%;
+    }
+
+    .box {
+      background: rgba(143, 214, 148, 0.12);
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      border-radius: 20px 4px 20px 4px;
+      padding: 25px 25px 8px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 17px;
+    }
+
+    .chip {
+      padding: 9px 20px;
+      border: 1px solid var(--dahon);
+      border-radius: 30px;
+      background: rgba(143, 214, 148, 0.18);
+      transition: 0.3s;
+    }
+
+    .chip:hover {
+      background: var(--dahon);
+      color: var(--gubat-madilim);
+      transform: translateY(-3px);
+    }
+
+    .goal-list {
+      margin: 0 0 17px 25px;
+      line-height: 1.9;
+    }
+
+    .goal-list li::marker {
+      color: var(--dahon);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .photo {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px 4px 20px 4px;
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      background: rgba(143, 214, 148, 0.12);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .photo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo.walang-litrato::after {
+      content: "Add photo here";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #a7d9b5;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .member-name { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dahon-layer"></div>
+  <div id="alitaptap-layer"></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About the Group</a>
+    <a href="members.html" class="active">Members</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <span class="label">Member 1 Blog</span>
+
+      <div class="profile">
+        <span class="num">1</span>
+        <img src="ako1.jpg" alt="Photo of Member 1" onerror="this.remove()">
+      </div>
+
+      <h1 class="walang-cursor member-name">Vincent Anghelo Velasquez</h1>
+      <h2>Project Leader</h2>
+
+      <hr>
+
+      <div class="section">
+        <h3>Personal Introduction</h3>
+        <div class="box">
+          <p>
+            Hi, I’m Vincent, I’m 19 years old, and I currently live in Dubai. I’m a first-year IT student. Honestly, I wasn’t sure what course to take, but people told me IT would be easy. Now that I’m actually studying it, I’m starting to have my doubts.
+In my free time, I like to draw, read books, and play guitar. I tend to overthink things, especially when I know I did my best and still wonder why it didn’t seem like enough to some people. Those hobbies help me slow down and clear my head. When I feel like doing something more active, I go to the gym, go for a run, or go swimming.
+One thing about me is that I really value my peace of mind. I’m the kind of person who would rather protect my peace than try to please everyone.
+That’s a little about me. 
+
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Hobbies and Interests</h3>
+        <div class="box">
+          <div class="chips">
+            <span class="chip">Basketball</span>
+            <span class="chip">Gym</span>
+            <span class="chip">Swimming</span>
+            <span class="chip">Playing Any kind of instrument</span>
+            <span class="chip">Portrait Drawing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Goals and Aspirations</h3>
+        <div class="box">
+          <ul class="goal-list">
+            <li>My first goal is to distance myself from people who don’t see my worth. I don’t have to change just to prove that I matter to someone. If I choose to change, I’ll do it for myself and my own well-being. I know who I am better than anyone else does.</li>
+            <li>My second goal is to be there for my grandparents as they grow older, give them the life they’ve always wanted, and help make their dreams come true. I really hope I get the chance to do that because we never know what tomorrow might bring.</li>
+            <li>My third and final goal is to become successful and grow beyond who I am today</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Photos</h3>
+        <div class="gallery">
+          <div class="photo"><img src="ako2.jpg" alt="Photo 1 of Member 1" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+          <div class="photo"><img src="ako3.jpg" alt="Photo 2 of Member 1" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+          <div class="photo"><img src="ako4.jpg" alt="Photo 3 of Member 1" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="nav-buttons">
+        <a class="btn btn-outline" href="members.html">Back to Members</a>
+        <a class="btn" href="member2.html">Member 2 &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Nature's Canvas | IT 111</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

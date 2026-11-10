@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About the Group</title>
+  <link rel="stylesheet" href="rainforest.css">
+
+  
+  <style>
+    .group-name {
+      font-size: 2.4rem;
+      color: var(--dahon);
+      text-shadow: 0 0 20px rgba(143, 214, 148, 0.5);
+      margin: 5px 0 10px;
+    }
+
+   
+    .section {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .section h3 {
+      font-size: 1.3rem;
+      color: var(--dahon);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .section h3::before {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 10px;
+      background: var(--dahon);
+      border-radius: 0 100% 0 100%; 
+    }
+
+    .intro-box {
+      background: rgba(143, 214, 148, 0.12);
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      border-radius: 20px 4px 20px 4px;   /* hugis dahon ang mga sulok */
+      padding: 25px 25px 8px;
+    }
+
+    .goals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .goal-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      background: rgba(143, 214, 148, 0.12);
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      border-radius: 20px 4px 20px 4px;
+      padding: 20px;
+      transition: 0.3s;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-6px);
+      background: rgba(143, 214, 148, 0.22);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .goal-number {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--gubat-liwanag);
+      color: var(--gubat-madilim);
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 14px rgba(143, 214, 148, 0.5);
+    }
+
+    .goal-card h4 {
+      font-size: 1.05rem;
+      color: var(--letra);
+      margin-bottom: 5px;
+    }
+
+    .goal-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .goals-grid {
+        grid-template-columns: 1fr;
+      }
+      .group-name {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dahon-layer"></div>
+  <div id="alitaptap-layer"></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About the Group</a>
+    <a href="members.html">Members</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <span class="label">About the Group</span>
+
+      <h1 class="walang-cursor group-name">Nature's Canvas</h1>
+      <h2>The team behind this website</h2>
+
+      <hr>
+
+      <div class="section">
+        <h3>Who We Are</h3>
+        <div class="intro-box">
+          <p>
+            We are Group 1, a team of five first-year BSIT students. We created Nature’s Canvas as our final project for IT 111 to apply what we are learning about web development and share a little about ourselves.
+Like different plants in a garden, each member has their own interests, ideas, and goals. This website brings our stories together through our profiles and personal blogs. As we build it, we aim to learn from one another, improve our skills, and create something we can be proud of.
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Goals of the Project</h3>
+        <div class="goals-grid">
+
+          <div class="goal-card">
+            <div class="goal-number">1</div>
+            <div>
+              <p>Our first goal for this website is to make all our members know 
+                each other better, through knowing what we like and what we dislike, 
+                our personalities, and our hobbies, so that we get to know each other
+                better, moreover, sometimes getting to know each other, often leads to friendship.</p>
+            </div>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-number">2</div>
+            <div>
+              <p>In this project we aims to bring our ideas and personal stories
+                together in one creative website. It also give us a chance to practice 
+                our HTML, CSS and JavaScript skills while learning to share responsibilities
+                and solve problems as a group.</p>
+            </div>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-number">3</div>
+            <div>
+              <p>We aim to create a website that is easy to explore and understand. With clear menus and readable
+                content, visitors can easily find our profiles and learn more about each member.</p>
+            </div>
+          </div>
+
+          <div class="goal-card">
+            <div class="goal-number">4</div>
+            <div>
+              <p>We aim to use this website to share our experiences and insights as a first year IT student. Through our personal blogs, we can reflect on what we have learned and what we hope to achieve.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="buttons">
+        <a class="btn btn-outline" href="index.html">Back to Home</a>
+        <a class="btn" href="members.html">Meet the Members</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Nature's Canvas | IT 111</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+/* ===== rainforest.css =====
+   Design ng Home page na may RAINFOREST theme.
+   Ginagamit lang ito ng index.html. */
+
+/* Mga kulay ng gubat. Pwede mong palitan dito lang */
+:root {
+  --gubat-madilim: #052e1a;   /* pinakamadilim na berde */
+  --gubat-gitna: #0b5d3b;     /* berde sa gitna */
+  --gubat-liwanag: #3fa66b;   /* mas maliwanag na berde */
+  --dahon: #8fd694;           /* kulay ng dahon */
+  --liwanag: #f5e9a8;         /* kulay ng alitaptap (dilaw) */
+  --letra: #f0fff4;           /* kulay ng letra */
+}
+
+/* Reset: tinatanggal ang default na espasyo ng browser */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background ng buong page: madilim sa taas, mas maliwanag sa baba */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--letra);
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(143, 214, 148, 0.25), transparent 60%),
+    linear-gradient(180deg, var(--gubat-madilim), var(--gubat-gitna) 70%, #0f7a4a);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* ===== LAYER NG MGA DAHON AT ALITAPTAP =====
+   Ang mga dahon at alitaptap ay ginagawa ng JavaScript (script.js)
+   at inilalagay sa loob ng mga lalagyang ito. */
+#dahon-layer,
+#alitaptap-layer,
+#ulan-layer {
+  position: fixed;
+  inset: 0;                        /* sakop ang buong screen */
+  pointer-events: none;            /* hindi hinaharangan ang pag-click */
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Isang dahon (hugis dahon gamit ang border-radius) */
+.dahon {
+  position: absolute;
+  top: -60px;
+  background: var(--dahon);
+  border-radius: 0 100% 0 100%;   /* ito ang nagbibigay ng hugis dahon */
+  opacity: 0.7;
+  animation: bagsak linear infinite;
+}
+
+/* Animation: bumabagsak habang umiikot at umiindayog */
+@keyframes bagsak {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); }
+  50%  { transform: translateY(55vh) translateX(40px) rotate(180deg); }
+  100% { transform: translateY(115vh) translateX(-20px) rotate(360deg); }
+}
+
+/* Isang alitaptap (kumikislap na tuldok) */
+.alitaptap {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--liwanag);
+  border-radius: 50%;
+  box-shadow: 0 0 12px 4px var(--liwanag);   /* ito ang glow */
+  animation: lutang ease-in-out infinite, kislap ease-in-out infinite;
+}
+
+@keyframes lutang {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(30px, -40px); }
+}
+
+@keyframes kislap {
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 1; }
+}
+
+/* Patak ng ulan (lumalabas lang kapag pinindot ang rain button) */
+.patak {
+  position: absolute;
+  top: -30px;
+  width: 2px;
+  height: 22px;
+  background: rgba(200, 235, 255, 0.6);
+  animation: ulan linear infinite;
+}
+
+@keyframes ulan {
+  to { transform: translateY(115vh); }
+}
+
+/* ===== NAVIGATION BAR (menu sa taas) ===== */
+nav {
+  position: relative;
+  z-index: 5;                      /* para nasa ibabaw ng mga dahon */
+  background: rgba(5, 46, 26, 0.6);
+  backdrop-filter: blur(8px);      /* malabong salamin na epekto */
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav a {
+  color: var(--letra);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 18px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  background: var(--dahon);
+  color: var(--gubat-madilim);
+}
+
+/* ===== LAMAN NG HOME PAGE ===== */
+main {
+  position: relative;
+  z-index: 5;
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+/* Ang malabong salaming kahon sa gitna */
+.hero {
+  background: rgba(5, 46, 26, 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(143, 214, 148, 0.35);
+  border-radius: 25px;
+  padding: 50px 35px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  animation: lumitaw 1.2s ease;    /* dahan-dahang paglitaw pagbukas ng page */
+}
+
+@keyframes lumitaw {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Maliit na label sa taas */
+.label {
+  display: inline-block;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--liwanag);
+  margin-bottom: 15px;
+}
+
+/* Welcome message (may typing effect galing sa JavaScript) */
+h1 {
+  font-size: 2.6rem;
+  min-height: 3.3rem;              /* para hindi tumalon ang layout habang tina-type */
+  color: var(--dahon);
+  text-shadow: 0 0 20px rgba(143, 214, 148, 0.5);
+}
+
+/* Kumikislap na guhit habang nagta-type */
+h1::after {
+  content: "|";
+  margin-left: 4px;
+  animation: kurap 0.8s infinite;
+}
+
+@keyframes kurap {
+  50% { opacity: 0; }
+}
+
+/* Website title */
+h2 {
+  font-size: 1.5rem;
+  margin: 10px 0 20px;
+  font-weight: 500;
+  color: var(--letra);
+}
+
+p {
+  line-height: 1.8;
+  margin-bottom: 18px;
+  color: #d6f5df;
+}
+
+/* Linya sa pagitan */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--dahon), transparent);
+  margin: 25px 0;
+}
+
+/* ===== MGA BUTTON ===== */
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  background: var(--gubat-liwanag);
+  color: var(--gubat-madilim);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--dahon);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(143, 214, 148, 0.4);
+}
+
+/* Button na walang laman ang loob (para sa Rain button) */
+.btn-outline {
+  background: transparent;
+  color: var(--letra);
+  border: 2px solid var(--dahon);
+}
+
+.btn-outline:hover {
+  background: rgba(143, 214, 148, 0.2);
+}
+
+footer {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #a7d9b5;
+}
+
+/* Para sa cellphone: mas maliit ang letra */
+@media (max-width: 500px) {
+  h1 { font-size: 1.8rem; min-height: 4.5rem; }
+  .hero { padding: 35px 20px; }
+}
+/* ---------- ANIMATIONS ---------- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+.number-circle {
+  animation: float 3s ease-in-out infinite;
+}
+
+.btn {
+  transition: transform 0.3s ease;
+}
+.btn:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(63, 165, 107, 0.4); }
+  50%      { box-shadow: 0 0 28px rgba(63, 165, 107, 0.9); }
+}
+
+.number-circle {
+  animation: glow 2.5s ease-in-out infinite;
+}

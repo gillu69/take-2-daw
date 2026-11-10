@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Email Button</title>
+  <style>
+    body {
+      background: #0a3d24;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Itsura ng button (kapareho ng green button sa website mo) */
+    .btn-email {
+      background: #3fa56b;
+      color: #0a3d24;
+      font-weight: bold;
+      font-size: 16px;
+      text-decoration: none;   /* tanggal ang underline ng link */
+      padding: 18px 36px;
+      border-radius: 40px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .btn-email:hover {
+      background: #52c283;
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+    PARAAN 1 (Recommended): Bubukas ang Gmail sa browser
+    - Gumagana kahit walang email app sa computer mo
+    - target="_blank" = bubukas sa bagong tab
+    - to= ang email na pagpapadalhan
+    - su= ang subject (pwede mong palitan)
+  -->
+  <a class="btn-email"
+     href="https://mail.google.com/mail/?view=cm&fo=1&to=mikeanghelo43@gmail.com&su=Hello%20Ghelo"
+     target="_blank"
+     rel="noopener">
+    Send Email
+  </a>
+
+  <!--
+    PARAAN 2 (Backup): mailto
+    Bubukas ang default email app (Outlook, Mail, etc.)
+    Kung walang email app sa PC, walang mangyayari -
+    kaya yun siguro ang dahilan kung bakit wala kang nakikita.
+
+    I-remove ang comment sa baba kung gusto mong gamitin ito:
+
+    <a class="btn-email" href="mailto:mikeanghelo43@gmail.com?subject=Hello%20Ghelo">Send Email</a>
+  -->
+
+</body>
+</html>

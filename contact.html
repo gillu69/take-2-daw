@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Rainforest Group Website</title>
+  <link rel="stylesheet" href="rainforest.css">
+
+  <style>
+
+    .picker {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 25px 0 30px;
+    }
+
+    .picker button {
+      padding: 10px 22px;
+      border: 2px solid var(--dahon);
+      border-radius: 30px;
+      background: transparent;
+      color: var(--letra);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .picker button:hover {
+      background: rgba(143, 214, 148, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .picker button.napili {
+      background: var(--dahon);
+      color: var(--gubat-madilim);
+    }
+
+    .contact-card {
+      background: rgba(143, 214, 148, 0.12);
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      border-radius: 20px 4px 20px 4px;
+      padding: 30px 25px;
+      text-align: center;
+      animation: lumitaw 0.5s ease;
+    }
+
+    /* Bilog na may numero ng member */
+    .contact-avatar {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: var(--gubat-liwanag);
+      color: var(--gubat-madilim);
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(143, 214, 148, 0.5);
+    }
+
+    .contact-card h3 {
+      font-size: 1.5rem;
+      color: var(--dahon);
+      margin-bottom: 4px;
+    }
+
+    .contact-card .role {
+      color: var(--liwanag);
+      margin-bottom: 22px;
+    }
+
+    .info-list {
+      max-width: 420px;
+      margin: 0 auto 25px;
+      text-align: left;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 14px;
+    }
+
+    .info-icon {
+      flex-shrink: 0; 
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--gubat-liwanag);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info-row small {
+      display: block;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--liwanag);
+    }
+
+    .info-row span {
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dahon-layer"></div>
+  <div id="alitaptap-layer"></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About the Group</a>
+    <a href="members.html">Members</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <span class="label">Get in Touch</span>
+      <h1 class="walang-cursor">Contact Us</h1>
+      <h2>Who do you want to contact?</h2>
+
+      <hr>
+
+      <div class="picker" id="picker"></div>
+
+      <div class="contact-card" id="contact-card"></div>
+
+      <hr>
+
+      <div class="buttons">
+        <a class="btn btn-outline" href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Nature's Canvas | IT 111</footer>
+
+  <script src="script.js"></script>
+
+  <script>
+
+    const members = [
+      {
+        name: "Vincent Anghelo Velasquez",
+        role: "Project Leader",
+        email: "mikeanghelo43@gmail.com",
+        facebook: "Ghelo Mamawtumunog",
+        facebookLink: "https://www.facebook.com/ghelo.velasquez.12",
+        phone: "+971 50 420 5265"
+      },
+      {
+        name: "Winny Hagen",
+        role: "Web Designer",
+        email: "wynni12wyne@yahoo.com",
+        facebook: "Hagen Winnie",
+        facebookLink: "https://www.facebook.com/wynni.sibal",
+        phone: "1 320 828 6827"
+      },
+      {
+        name: "Elijah Josh Pimentel",
+        role: "HTML Developer",
+        email: "elijahpimentel09@gmail.com",
+        facebook: "Josh Pimentel",
+        facebookLink: "https://www.facebook.com/elijah.deyto",
+        phone: "3363 3027"
+      },
+      {
+        name: "Tristan Miguel Inigo Lopez",
+        role: "Documentation Officer",
+        email: "Tristanmiguelinigo05@gmail.com",
+        facebook: "Write Facebook name here",
+        facebookLink: "https://www.facebook.com/share/1F8PS3yKAi/",
+        phone: "97477827939"
+      },
+    ];
+
+    const picker = document.getElementById("picker");
+    const card = document.getElementById("contact-card");
+
+    function ipakita(i) {
+      const m = members[i];
+
+      card.innerHTML =
+        '<div class="contact-avatar">' + (i + 1) + '</div>' +
+        '<h3>' + m.name + '</h3>' +
+        '<p class="role">' + m.role + '</p>' +
+        '<div class="info-list">' +
+          '<div class="info-row"><div class="info-icon">&#9993;</div>' +
+            '<div><small>Email</small><span>' + m.email + '</span></div></div>' +
+          '<div class="info-row"><div class="info-icon">&#128172;</div>' +
+            '<div><small>Facebook</small><span>' + m.facebook + '</span></div></div>' +
+          '<div class="info-row"><div class="info-icon">&#128222;</div>' +
+            '<div><small>Phone</small><span>' + m.phone + '</span></div></div>' +
+        '</div>' +
+        '<div class="buttons">' +
+          '<a class="btn" href="https://mail.google.com/mail/?view=cm&fo=1&to=' + m.email + '" target="_blank">Send Email</a>' +
+          '<a class="btn btn-outline" href="' + m.facebookLink + '" target="_blank">Visit Facebook</a>' +
+        '</div>';
+      const buttons = picker.querySelectorAll("button");
+      buttons.forEach(function (b, n) {
+        b.classList.toggle("napili", n === i);
+      });
+    }
+
+    members.forEach(function (m, i) {
+      const button = document.createElement("button");
+      button.textContent = "Member " + (i + 1);
+      button.addEventListener("click", function () {
+        ipakita(i);
+      });
+      picker.appendChild(button);
+    });
+
+    ipakita(0);
+  </script>
+
+</body>
+</html>

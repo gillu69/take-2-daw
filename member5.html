@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member 5 Blog - Rainforest Group Website</title>
+  <!-- Parehong CSS ng Home, Members, Contact at About page, kaya pareho ang itsura -->
+  <link rel="stylesheet" href="rainforest.css">
+
+  <!-- Design na para lang sa Blog page. Nandito na mismo kaya
+       hindi mo na kailangang baguhin ang rainforest.css -->
+  <style>
+    /* Bilog na lalagyan ng profile picture */
+    .profile {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 10px auto 18px;
+      border-radius: 50%;
+      background: var(--gubat-liwanag);
+      border: 4px solid var(--dahon);
+      box-shadow: 0 0 25px rgba(143, 214, 148, 0.5);
+      overflow: hidden;
+    }
+
+    /* Numero ng member (lalabas lang kapag wala pang picture) */
+    .profile .num {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: var(--gubat-madilim);
+    }
+
+    /* Ang picture mismo, nakapatong sa numero */
+    .profile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .member-name {
+      font-size: 2.2rem;
+      color: var(--dahon);
+      text-shadow: 0 0 20px rgba(143, 214, 148, 0.5);
+      margin-bottom: 5px;
+    }
+
+    /* Mga bahagi ng blog (Introduction, Hobbies, atbp.) */
+    .section {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .section h3 {
+      font-size: 1.3rem;
+      color: var(--dahon);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* Maliit na dahon sa unahan ng pamagat */
+    .section h3::before {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 10px;
+      background: var(--dahon);
+      border-radius: 0 100% 0 100%;
+    }
+
+    /* Kahon ng laman (hugis dahon ang mga sulok) */
+    .box {
+      background: rgba(143, 214, 148, 0.12);
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      border-radius: 20px 4px 20px 4px;
+      padding: 25px 25px 8px;
+    }
+
+    /* Mga hobby na parang tag */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 17px;
+    }
+
+    .chip {
+      padding: 9px 20px;
+      border: 1px solid var(--dahon);
+      border-radius: 30px;
+      background: rgba(143, 214, 148, 0.18);
+      transition: 0.3s;
+    }
+
+    .chip:hover {
+      background: var(--dahon);
+      color: var(--gubat-madilim);
+      transform: translateY(-3px);
+    }
+
+    /* Listahan ng goals */
+    .goal-list {
+      margin: 0 0 17px 25px;
+      line-height: 1.9;
+    }
+
+    .goal-list li::marker {
+      color: var(--dahon);
+    }
+
+    /* Lalagyan ng mga photo: 3 column */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .photo {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px 4px 20px 4px;
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      background: rgba(143, 214, 148, 0.12);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .photo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Kapag walang picture, lalabas ang paalala na ito */
+    .photo.walang-litrato::after {
+      content: "Add photo here";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #a7d9b5;
+    }
+
+    /* Mga button sa baba */
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    /* Para sa cellphone */
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .member-name { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mga lalagyan ng dahon at alitaptap (nilalagyan ito ng JavaScript) -->
+  <div id="dahon-layer"></div>
+  <div id="alitaptap-layer"></div>
+
+  <!-- Menu sa taas. Ang "active" ay nasa Members dahil bahagi ito ng Members -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About the Group</a>
+    <a href="members.html" class="active">Members</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <span class="label">Member 5 Blog</span>
+
+      <!-- PROFILE PICTURE: ilagay ang picture sa parehong folder at pangalanan ng pic5.jpg.
+           Kung wala pa, numero muna ang lalabas. -->
+      <div class="profile">
+        <span class="num">5</span>
+        <img src="pic5.jpg" alt="Photo of Member 5" onerror="this.remove()">
+      </div>
+
+      <!-- PANGALAN -->
+      <h1 class="walang-cursor member-name">Member 5 Name</h1>
+      <h2>Write role here</h2>
+
+      <hr>
+
+      <!-- 1. PERSONAL INTRODUCTION -->
+      <div class="section">
+        <h3>Personal Introduction</h3>
+        <div class="box">
+          <p>
+            Write about yourself here. Who are you, where are you from,
+            what do you study, and what is one thing people should know
+            about you?
+          </p>
+          <p>
+            You can write one more paragraph if you want.
+          </p>
+        </div>
+      </div>
+
+      <!-- 2. HOBBIES AND INTERESTS -->
+      <div class="section">
+        <h3>Hobbies and Interests</h3>
+        <div class="box">
+          <div class="chips">
+            <span class="chip">Hobby 1</span>
+            <span class="chip">Hobby 2</span>
+            <span class="chip">Hobby 3</span>
+            <span class="chip">Hobby 4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. GOALS AND ASPIRATIONS -->
+      <div class="section">
+        <h3>Goals and Aspirations</h3>
+        <div class="box">
+          <p>
+            Write your goals in life and what you want to become in the future.
+          </p>
+          <ul class="goal-list">
+            <li>Goal number 1</li>
+            <li>Goal number 2</li>
+            <li>Goal number 3</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 4. PHOTOS (OPTIONAL) -->
+      <div class="section">
+        <h3>Photos</h3>
+        <!-- Ilagay ang mga picture sa parehong folder at pangalanan ng member5-photo1.jpg, member5-photo2.jpg, member5-photo3.jpg.
+             Kung ayaw ninyong maglagay, burahin ang buong bahaging ito (mula "4. PHOTOS" hanggang sa katapat na </div>). -->
+        <div class="gallery">
+          <div class="photo"><img src="member5-photo1.jpg" alt="Photo 1 of Member 5" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+          <div class="photo"><img src="member5-photo2.jpg" alt="Photo 2 of Member 5" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+          <div class="photo"><img src="member5-photo3.jpg" alt="Photo 3 of Member 5" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="nav-buttons">
+        <a class="btn" href="member4.html">&larr; Member 4</a>
+        <a class="btn btn-outline" href="members.html">Back to Members</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Group Name | IT 111</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

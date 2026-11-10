@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member 2 Blog</title>
+  <link rel="stylesheet" href="rainforest.css">
+
+
+  <style>
+    .profile {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 10px auto 18px;
+      border-radius: 50%;
+      background: var(--gubat-liwanag);
+      border: 4px solid var(--dahon);
+      box-shadow: 0 0 25px rgba(143, 214, 148, 0.5);
+      overflow: hidden;
+    }
+
+    .profile .num {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: var(--gubat-madilim);
+    }
+
+    .profile img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .member-name {
+      font-size: 2.2rem;
+      color: var(--dahon);
+      text-shadow: 0 0 20px rgba(143, 214, 148, 0.5);
+      margin-bottom: 5px;
+    }
+
+    .section {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .section h3 {
+      font-size: 1.3rem;
+      color: var(--dahon);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .section h3::before {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: 10px;
+      background: var(--dahon);
+      border-radius: 0 100% 0 100%;
+    }
+
+    .box {
+      background: rgba(143, 214, 148, 0.12);
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      border-radius: 20px 4px 20px 4px;
+      padding: 25px 25px 8px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      padding-bottom: 17px;
+    }
+
+    .chip {
+      padding: 9px 20px;
+      border: 1px solid var(--dahon);
+      border-radius: 30px;
+      background: rgba(143, 214, 148, 0.18);
+      transition: 0.3s;
+    }
+
+    .chip:hover {
+      background: var(--dahon);
+      color: var(--gubat-madilim);
+      transform: translateY(-3px);
+    }
+
+    .goal-list {
+      margin: 0 0 17px 25px;
+      line-height: 1.9;
+    }
+
+    .goal-list li::marker {
+      color: var(--dahon);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .photo {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px 4px 20px 4px;
+      border: 1px solid rgba(143, 214, 148, 0.35);
+      background: rgba(143, 214, 148, 0.12);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .photo:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo.walang-pic::after {
+      content: "Add photo here";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #a7d9b5;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .member-name { font-size: 1.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="dahon-layer"></div>
+  <div id="alitaptap-layer"></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About the Group</a>
+    <a href="members.html" class="active">Members</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <div class="hero">
+      <span class="label">Member 2 Blog</span>
+
+      <div class="profile">
+        <span class="num">2</span>
+        <img src="ate.jpg" alt="Photo of Member 2" onerror="this.remove()">
+      </div>
+
+      <h1 class="walang-cursor member-name">Winny Hagen</h1>
+      <h2>Web Designer</h2>
+
+      <hr>
+
+      <div class="section">
+        <h3>Personal Introduction</h3>
+        <div class="box">
+          <p>
+            I'm Winny Hagen, a student from the US, Minnesota. I am currently
+            pursuing a degree in Information Technology at Far Eastern University Marikina. To Finish this Course and find new things in life. TO LIVE LIFE TO THE FULLEST
+          </p>
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Hobbies and Interests</h3>
+        <div class="box">
+          <div class="chips">
+            <span class="chip">Cooking</span>
+            <span class="chip">Hardworking Mom</span>
+            <span class="chip">Watch Movies</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Goals and Aspirations</h3>
+        <div class="box">
+          <ul class="goal-list">
+            <li>prioritizing the basic physical movement every other day.</li>
+            <li>to Help my kids on their everyday routine until they reach their adult life</li>
+            <li>to bring my siblings together with their familly and live with me here</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h3>Photos</h3>
+        <div class="gallery">
+          <div class="photo"><img src="ate.jpg" alt="Photo 1 of Member 2" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+          <div class="photo"><img src="ate2.jpg" alt="Photo 2 of Member 2" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+          <div class="photo"><img src="ate3.jpg" alt="Photo 3 of Member 2" onerror="this.parentElement.classList.add('walang-litrato'); this.remove()"></div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="nav-buttons">
+        <a class="btn" href="member1.html">&larr; Member 1</a>
+        <a class="btn btn-outline" href="members.html">Back to Members</a>
+        <a class="btn" href="member3.html">Member 3 &rarr;</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>&copy; 2026 Nature's Canvas | IT 111</footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
